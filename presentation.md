@@ -310,7 +310,7 @@ cargo-about, cargo-audit, cargo-binstall, cargo-bloat, cargo-clone, cargo-crev, 
 
 ## Libraries
 
-> https://lib.rs/command-line-interface
+`https://lib.rs/command-line-interface`
 
 <!-- pause -->
 
@@ -401,25 +401,262 @@ assert_eq!(lines.next().unwrap()?, "err");
 
 <!-- end_slide -->
 
+<!-- new_lines: 1 -->
+
+_<span style="color:#fff9ee">"R" in Rust stands for...</span>_
+
+![image:width:40%](assets/rat-love.gif)
+
+<!-- column_layout: [4, 1] -->
+
+<!-- column: 1-->
+
+<!-- pause -->
+
+**<span style="color:#fff9ee">Ratatui!</span>** 🐁
+
+<!-- end_slide -->
+
 ## Ratatui
 
-R in Rust stands for Ratatui
+<!-- column_layout: [3, 6] -->
 
-### How to
+<!-- column: 0 -->
 
-### Templates
+<!-- new_lines: 1 -->
 
-### Apps
+![image:width:90%](assets/ratatui-spin.gif)
+
+<!-- pause -->
+
+<!-- column: 1 -->
+
+<!-- new_lines: 2 -->
+
+A Rust library that's all about cooking up terminal user interfaces (TUIs) 👨‍🍳🐀
+
+`https://github.com/ratatui`
+R
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path ratatui/examples/apps/demo2/Cargo.toml
+```
+
+<!-- end_slide -->
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+## Widgets
+
+- Block
+- BarChart
+- Calendar
+- Canvas
+- Chart
+- Gauge
+- LineGauge
+- List
+- Paragraph
+- Scrollbar
+- Sparkline
+- Table
+- Tabs
+- ...
+
+- Anything that implements `Widget` trait
+
+<!-- column: 1 -->
+
+<!-- pause -->
+
+## Key Concepts
+
+- Rendering
+- Layout
+- Event handling
+
+![image:width:60%](assets/ratcopter.gif)
+
+<!-- end_slide -->
+
+```rust {1-20|5|6|7,16-18|8-11|12-14|1-20} +line_numbers
+use ratatui::crossterm::event::{self, Event};
+use ratatui::{text::Text, Frame};
+
+fn main() -> std::io::Result<()> {
+    let mut terminal = ratatui::init();
+    loop {
+        terminal.draw(draw)?;
+        if matches!(event::read()?, Event::Key(_)) {
+            break;
+        }
+    }
+    ratatui::restore();
+    Ok(())
+}
+
+fn draw(frame: &mut Frame) {
+    let text = Text::raw("Hello World!");
+    frame.render_widget(text, frame.area());
+}
+```
+
+<!-- end_slide -->
+
+### Rendering
+
+<!-- column_layout: [3, 1] -->
+
+<!-- column: 0 -->
+
+```rust {1-16|1|1,4,9|6,11|1-16} +line_numbers
+let mut toggle = false;
+loop {
+    terminal.draw(|frame: &mut Frame| {
+        if toggle {
+            frame.render_widget(
+                BarChart::default()
+                //...
+            );
+        } else {
+            frame.render_widget(
+                LineGauge::default()
+                //...
+            );
+        }
+    });
+}
+```
+
+<!-- column: 1 -->
+
+<!-- new_lines: 10 -->
+
+![](assets/rat-dance.gif)
+
+<!-- end_slide -->
+
+### Layout
+
+<!-- column_layout: [8, 2] -->
+
+<!-- column: 1 -->
+
+<!-- new_lines: 11 -->
+
+![](assets/rat-point.gif)
+
+<!-- column: 0 -->
+
+```rust {1-9|2|3-7|9|1-9} +line_numbers
+let layout = Layout::default()
+    .direction(Direction::Horizontal)
+    .constraints(&[
+        Constraint::Length(10),
+        Constraint::Percentage(70),
+        Constraint::Min(5),
+    ])
+    .split(frame.area());
+```
+
+<!-- pause -->
+
+```rust +line_numbers
+let percent =
+  if msg_count > 50 { 80 } else { 50 };
+
+let contraints = &[
+  Constraint::Percentage(percent),
+  Constraint::Percentage(100 - percent)
+];
+```
+
+<!-- end_slide -->
+
+#### Constraints
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path ratatui/Cargo.toml -p constraints
+cargo run --manifest-path ratatui/Cargo.toml -p constraint-explorer
+```
+
+<!-- pause -->
+
+#### Flex
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path ratatui/Cargo.toml -p flex
+```
+
+<!-- end_slide -->
+
+### Event Handling
+
+- Backends: `crossterm`, `termion`, `termwiz`
+
+<!-- pause -->
+
+- Centralized event handling
+- Centralized catching, message passing
+- Distributed event loops/segmented applications
+
+<!-- new_lines: 1 -->
+
+![image:width:25%](assets/rat-ski.gif)
+
+<!-- end_slide -->
+
+```rust {1-11|1-2|6|1-11} +line_numbers
+let timeout = Duration::from_secs_f64(1.0 / 60.0);
+if !event::poll(timeout)? {
+    return Ok(());
+}
+
+if let Event::Key(key) = event::read()? {
+    match key.code {
+        KeyCode::Char('q') | KeyCode::Esc => break,
+        _ => {}
+    }
+}
+```
+
+![image:width:100%](assets/sphere.gif)
+
+<!-- end_slide -->
+
+![image:width:25%](assets/computer3.gif)
+
+![image:width:30%](assets/not-gucci.gif)
+
+<!-- end_slide -->
+
+### TachyonFX
+
+https://github.com/junkdog/tachyonfx
+
+### tui-shader
+
+https://github.com/pemattern/tui-shader
 
 ### Ratzilla
 
+https://github.com/orhun/ratzilla
+
+### Bevy-ratatui-camera
+
+https://github.com/cxreiff/bevy_ratatui_camera
+
 ![image:width:80%](assets/lets-surf.gif)
 
-### Elm
+<!-- end_slide -->
 
 ## Future
 
 7 tools
+
+## Presenterm
 
 ## Zellij
 
@@ -432,6 +669,10 @@ R in Rust stands for Ratatui
 ## More
 
 ### The Future
+
+ring crate
+
+terminalcollective.org
 
 Ecosystem gaps that need to be filled
 Dream terminal tools that don’t exist yet

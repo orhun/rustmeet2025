@@ -578,8 +578,9 @@ let contraints = &[
 #### Constraints
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path ratatui/Cargo.toml -p constraints
-cargo run --manifest-path ratatui/Cargo.toml -p constraint-explorer
+cd ratatui
+cargo run -p constraints
+cargo run -p constraint-explorer
 ```
 
 <!-- pause -->
@@ -587,7 +588,8 @@ cargo run --manifest-path ratatui/Cargo.toml -p constraint-explorer
 #### Flex
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path ratatui/Cargo.toml -p flex
+cd ratatui
+cargo run -p flex
 ```
 
 <!-- end_slide -->
@@ -632,29 +634,120 @@ if let Event::Key(key) = event::read()? {
 
 <!-- end_slide -->
 
-### TachyonFX
+### TachyonFX 🌀
 
-https://github.com/junkdog/tachyonfx
+[](https://github.com/junkdog/tachyonfx)
 
-### tui-shader
+```bash +exec +acquire_terminal
+cd tachyonfx
+cargo run --example basic-effects
+cargo run --example tweens
+```
 
-https://github.com/pemattern/tui-shader
+<!-- end_slide -->
 
-### Ratzilla
+<!-- new_lines: 2 -->
 
-https://github.com/orhun/ratzilla
+```rust +line_numbers
+fx::sequence(&[
+    // "sweep in" the text from the left
+    fx::ping_pong(fx::sweep_in(
+        Motion::LeftToRight,
+        10,
+        0,
+        Color::DarkGray,
+        EffectTimer::from_ms(
+          2000, Interpolation::QuadIn
+       ),
+    )),
+    // coalesce the text back to its original state
+    fx::coalesce((800, Interpolation::SineOut))
+]);
+```
 
-### Bevy-ratatui-camera
+<!-- end_slide -->
 
-https://github.com/cxreiff/bevy_ratatui_camera
+### tui-shader ✨
+
+[](https://github.com/pemattern/tui-shader)
+
+```bash +exec +acquire_terminal
+cd tui-shader
+cargo run --example stylize-other-widget
+cargo run --example hello-shader
+```
+
+<!-- pause -->
+
+```rust +line_numbers
+let mut state =
+  ShaderCanvasState::wgpu("shaders/voronoi.wgsl", "main");
+
+frame.render_stateful_widget(
+  ShaderCanvas::new(), frame.area(), &mut state
+);
+```
+
+<!-- end_slide -->
+
+### Ratzilla 🐭
+
+[](https://github.com/orhun/ratzilla)
 
 ![image:width:80%](assets/lets-surf.gif)
+
+<!-- end_slide -->
+
+```bash +exec
+pkill trunk
+cd ratzilla/examples/demo
+trunk serve
+```
+
+<!-- end_slide -->
+
+```rust {1-17|2-3|5-10|12-14|1-17} +line_numbers
+fn main() -> std::io::Result<()> {
+    let backend = DomBackend::new()?;
+    let terminal = Terminal::new(backend)?;
+
+    terminal.on_key_event(move |event| match event.code {
+        KeyCode::Char(c) => {
+            // Handle the key event
+        }
+        _ => {}
+    });
+
+    terminal.draw_web(move |frame| {
+        // Draw the UI
+    });
+
+    Ok(())
+}
+```
+
+<!-- end_slide -->
+
+### bevy-ratatui-camera 📷
+
+[](https://github.com/cxreiff/bevy_ratatui_camera)
+
+![image:width:60%](assets/bevy-ratatui.gif)
+
+```bash +exec +acquire_terminal
+cd bevy_ratatui_camera
+cargo run --example multiple
+```
 
 <!-- end_slide -->
 
 ## Future
 
 7 tools
+
+## Ratatui Apps
+
+- "We need to be careful about the tools we create. They shape how we think."
 
 ## Presenterm
 

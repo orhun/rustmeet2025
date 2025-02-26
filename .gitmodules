@@ -1,3 +1,15 @@
 [submodule "ratatui"]
 	path = ratatui
 	url = https://github.com/ratatui/ratatui
+[submodule "tachyonfx"]
+	path = tachyonfx
+	url = https://github.com/junkdog/tachyonfx
+[submodule "tui-shader"]
+	path = tui-shader
+	url = https://github.com/pemattern/tui-shader
+[submodule "ratzilla"]
+	path = ratzilla
+	url = https://github.com/orhun/ratzilla
+[submodule "bevy_ratatui_camera"]
+	path = bevy_ratatui_camera
+	url = https://github.com/cxreiff/bevy_ratatui_camera

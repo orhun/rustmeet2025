@@ -550,7 +550,7 @@ loop {
 
 <!-- column: 0 -->
 
-```rust {1-9|2|3-7|9|1-9} +line_numbers
+```rust {1-9|2|3-7|1-9} +line_numbers
 let layout = Layout::default()
     .direction(Direction::Horizontal)
     .constraints(&[
@@ -628,7 +628,7 @@ if let Event::Key(key) = event::read()? {
 
 <!-- end_slide -->
 
-![image:width:25%](assets/computer3.gif)
+![image:width:28%](assets/computer3.gif)
 
 ![image:width:30%](assets/not-gucci.gif)
 
@@ -642,6 +642,12 @@ if let Event::Key(key) = event::read()? {
 cd tachyonfx
 cargo run --example basic-effects
 cargo run --example tweens
+```
+
+<!-- pause -->
+
+```bash +exec +acquire_terminal
+exabind
 ```
 
 <!-- end_slide -->
@@ -664,6 +670,8 @@ fx::sequence(&[
     fx::coalesce((800, Interpolation::SineOut))
 ]);
 ```
+
+TODO: DSL editor
 
 <!-- end_slide -->
 
@@ -741,25 +749,189 @@ cargo run --example multiple
 
 <!-- end_slide -->
 
-## Future
+<!-- column_layout: [2, 2, 4, 2] -->
 
-7 tools
+<!-- column: 1 -->
 
-## Ratatui Apps
+<!-- jump_to_middle -->
 
-- "We need to be careful about the tools we create. They shape how we think."
+**THE FUTURE █**
+
+<!-- column: 2 -->
+
+<!-- new_lines: 6 -->
+
+![image:width:60%](assets/head.gif)
+
+<!-- end_slide -->
+
+<!-- new_lines: 5 -->
+
+**We shape our tools.**
+
+<!-- pause -->
+
+**Then they shape us.**
+
+<!-- pause -->
+
+**They change how we think, behave, and perceive the world.**
+
+<!-- pause -->
+
+**So we should choose them wisely.**
+
+<!-- pause -->
+
+**...and <span style="color: #ff5f00">Rust</span> is a great choice. 🦀**
+
+<!-- end_slide -->
+
+![image:width:75%](assets/7-tools.jpg)
+
+<!-- column_layout: [1, 4, 1] -->
+
+<!-- column: 1 -->
+
+"7 Rust Terminal Tools That You Should Use"
+
+> https://youtu.be/ATiKwUiqnAU
+
+<!-- end_slide -->
 
 ## Presenterm
 
-## Zellij
+A markdown terminal slideshow tool
 
-## Starship
+> https://github.com/mfontanini/presenterm
 
-## Atuin
+<!-- pause -->
 
-## Nushell
+---
 
-## More
+```bash +exec +acquire_terminal
+$EDITOR presentation.md
+```
+
+<!-- column_layout: [1, 4, 1] -->
+
+<!-- column: 1 -->
+
+<!-- pause -->
+
+✨ Slides are available at [](https://github.com/orhun/rustmeet2025)
+
+<!-- end_slide -->
+
+## Flamelens
+
+Flamegraph viewer in the terminal
+
+> https://github.com/YS-L/flamelens
+
+<!-- pause -->
+
+---
+
+```bash +exec +acquire_terminal
+cd git-cliff
+cargo flamegraph \
+  --post-process 'flamelens --echo' \
+  --profile bench \
+  -- --config config/cliff.toml 2>&1
+```
+
+<!-- end_slide -->
+
+## Gurk
+
+Signal Messenger client for terminal
+
+> https://github.com/boxdot/gurk-rs
+
+<!-- pause -->
+
+![image:width:75%](assets/gurk.png)
+
+<!-- end_slide -->
+
+## Kwaak
+
+<!-- end_slide -->
+
+## Asterion
+
+Find your way through an inifinite maze
+
+> https://github.com/ricott1/asterion
+
+<!-- pause -->
+
+---
+
+```bash +exec +acquire_terminal
+ssh frittura.org -p 2020
+```
+
+<!-- end_slide -->
+
+## Grainiac
+
+Granular sampler that has a terminal user interface.
+
+> https://github.com/christian-grothe/grainiac
+
+<!-- pause -->
+
+---
+
+```bash +exec
+mpv assets/grainiac.mp4
+```
+
+<!-- end_slide -->
+
+## Honorable Mentions
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 1 -->
+
+![image:width:100%](assets/statue.gif)
+
+<!-- column: 0 -->
+
+<!-- pause -->
+
+### [Zellij](zellij.dev)
+
+A next-gen terminal multiplexer
+
+<!-- pause -->
+
+### [Nushell](nushell.sh)
+
+A new type of shell
+
+<!-- pause -->
+
+### [Starship](starship.rs)
+
+Customizable prompt for any shell
+
+<!-- pause -->
+
+### [Atuin](atuin.sh)
+
+Magical shell history
+
+<!-- pause -->
+
+### [Helix](helix-editor.com)
+
+`  ` | A post-modern text editor
+
+<!-- end_slide -->
 
 ### The Future
 
@@ -774,8 +946,16 @@ Resources for getting started
 Encouraging open-source contributions
 Final thoughts
 
+<!-- end_slide -->
+
+## Resources
+
+- Clig
+- Ratatui
+- Research more
+
+<!-- end_slide -->
+
 ## Q & A
 
-```
-
-```
+<!-- end_slide -->

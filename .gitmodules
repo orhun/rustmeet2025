@@ -13,3 +13,6 @@
 [submodule "bevy_ratatui_camera"]
 	path = bevy_ratatui_camera
 	url = https://github.com/cxreiff/bevy_ratatui_camera
+[submodule "git-cliff"]
+	path = git-cliff
+	url = https://github.com/orhun/git-cliff

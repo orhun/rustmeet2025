@@ -53,7 +53,7 @@ theme:
 1. Familiarize you with the terminal
 2. Showcase the power of Rust in the terminal
 3. Equip you with the modern libraries/tools
-4. Inspire you to build stuff™ ✨
+4. Inspire you to build things™ ✨
 
 <!-- end_slide -->
 
@@ -671,7 +671,22 @@ fx::sequence(&[
 ]);
 ```
 
-TODO: DSL editor
+<!-- end_slide -->
+
+<!-- new_lines: 2 -->
+
+```rust
+let effect = EffectDsl::new()
+    .compiler()
+    .compile(r#"
+        let color = Color::Red;
+        let not_text = Not(Box::new(Text));
+
+        fx::fade_to_fg(color, (500, QuadOut))
+            .with_filter(not_text)
+    "#)
+    .expect("effect to be compiled");
+```
 
 <!-- end_slide -->
 
@@ -857,6 +872,14 @@ Signal Messenger client for terminal
 
 ## Kwaak
 
+Run a team of autonomous AI agents from your terminal, in parallel.
+
+> https://github.com/bosun-ai/kwaak
+
+<!-- pause -->
+
+![](assets/kwaak.gif)
+
 <!-- end_slide -->
 
 ## Asterion
@@ -933,29 +956,133 @@ Magical shell history
 
 <!-- end_slide -->
 
-### The Future
+![](assets/fish-shell.png)
 
-ring crate
+<!-- pause -->
 
-terminalcollective.org
+> https://github.com/fish-shell/fish-shell/releases/tag/4.0.0
 
-Ecosystem gaps that need to be filled
-Dream terminal tools that don’t exist yet
-How to contribute and grow the Rust CLI/TUI ecosystem
-Resources for getting started
-Encouraging open-source contributions
-Final thoughts
+![](assets/fish-balloon.gif)
+
+<!-- end_slide -->
+
+<!-- column_layout: [2, 2, 4, 2] -->
+
+<!-- column: 1 -->
+
+<!-- jump_to_middle -->
+
+**TAKEAWAYS █**
+
+<!-- column: 2 -->
+
+<!-- new_lines: 6 -->
+
+![image:width:60%](assets/casette.gif)
+
+<!-- end_slide -->
+
+<!-- new_lines: 5 -->
+
+**The terminal ecosystem is growing with Rust.**
+
+<!-- pause -->
+
+**There are dream terminal tools that don't exist yet.**
+
+<!-- pause -->
+
+<span style="color:#666666">TUI wishlist: https://github.com/ratatui/ratatui/discussions/1570</span>
+
+<!-- pause -->
+
+**So just <span style="color: #ff5f00">contribute and build things™</span> 🦀**
+
+<!-- end_slide -->
+
+![image:width:80%](assets/ring.png)
+
+<!-- column_layout: [1, 10, 1] -->
+
+<!-- column: 1 -->
+
+> https://github.com/briansmith/ring/discussions/2414
+
+<!-- end_slide -->
+
+![](assets/tui-rs.png)
+
+<!-- column_layout: [1, 10, 1] -->
+
+<!-- column: 1 -->
+
+> https://github.com/fdehau/tui-rs/issues/654
+
+<!-- end_slide -->
+
+### terminalcollective.org
+
+A community for open-source terminal software enthusiasts.
+
+<!-- new_lines: 1 -->
+
+![image:width:40%](assets/computer4.gif)
 
 <!-- end_slide -->
 
 ## Resources
 
-- Clig
-- Ratatui
-- Research more
+<!-- pause -->
+
+### [Clig](https://clig.dev)
+
+An open-source guide to help you write better command-line programs, taking traditional UNIX principles and updating them for the modern day.
+
+<!-- pause -->
+
+### [Rust CLI Book](https://rust-cli.github.io/book)
+
+Documentation on how to use the Rust Programming Language to develop CLI applications
+
+<!-- pause -->
+
+### [Ratatui Tutorials](https://ratatui.rs/tutorials)
+
+Tutorials to guide you through building basic Ratatui applications.
+
+<!-- pause -->
+
+### [Awesome Ratatui](https://github.com/ratatui/awesome-ratatui)
+
+A curated list of TUI apps and libraries built with Ratatui
 
 <!-- end_slide -->
 
-## Q & A
+<!-- new_lines: 1 -->
 
-<!-- end_slide -->
+<!-- column_layout: [1, 3] -->
+
+<!-- column: 1 -->
+
+# Thank you! Any questions?
+
+<!-- pause -->
+
+<!-- reset_layout -->
+
+![image:width:30%](./assets/rat-cheese.gif)
+
+<!-- column_layout: [1, 6] -->
+
+<!-- column: 1 -->
+
+🧀 Sponsor me:
+_https://github.com/sponsors/orhun_
+
+<!-- reset_layout -->
+
+<!-- column_layout: [2, 7] -->
+
+<!-- column: 1 -->
+
+_P.S. I don't have a rat under my hat._

@@ -764,6 +764,23 @@ cargo run --example multiple
 
 <!-- end_slide -->
 
+#### yeehaw 🤠
+
+[](https://github.com/bogzbonny/yeehaw)
+
+<!-- pause -->
+
+> Batteries Included Text Based Application Framework
+
+![image:width:60%](assets/yeehaw.png)
+
+```bash +exec +acquire_terminal
+cd yeehaw
+cargo run --example showcase
+```
+
+<!-- end_slide -->
+
 <!-- column_layout: [2, 2, 4, 2] -->
 
 <!-- column: 1 -->

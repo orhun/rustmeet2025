@@ -16,3 +16,6 @@
 [submodule "git-cliff"]
 	path = git-cliff
 	url = https://github.com/orhun/git-cliff
+[submodule "yeehaw"]
+	path = yeehaw
+	url = https://github.com/bogzbonny/yeehaw

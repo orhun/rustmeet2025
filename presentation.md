@@ -53,7 +53,7 @@ theme:
 1. Familiarize you with the terminal
 2. Showcase the power of Rust in the terminal
 3. Equip you with the modern libraries/tools
-4. Inspire you to build things™ ✨
+4. Inspire you to build things™
 
 <!-- end_slide -->
 
@@ -436,7 +436,6 @@ _<span style="color:#fff9ee">"R" in Rust stands for...</span>_
 A Rust library that's all about cooking up terminal user interfaces (TUIs) 👨‍🍳🐀
 
 `https://github.com/ratatui`
-R
 
 ```bash +exec +acquire_terminal
 cargo run --manifest-path ratatui/examples/apps/demo2/Cargo.toml
@@ -481,6 +480,8 @@ cargo run --manifest-path ratatui/examples/apps/demo2/Cargo.toml
 
 <!-- end_slide -->
 
+### Minimal Example
+
 ```rust {1-20|5|6|7,16-18|8-11|12-14|1-20} +line_numbers
 use ratatui::crossterm::event::{self, Event};
 use ratatui::{text::Text, Frame};
@@ -498,14 +499,34 @@ fn main() -> std::io::Result<()> {
 }
 
 fn draw(frame: &mut Frame) {
-    let text = Text::raw("Hello World!");
-    frame.render_widget(text, frame.area());
+    frame.render_widget("Hello World!", frame.area());
 }
 ```
 
 <!-- end_slide -->
 
+```rust {1-13|3}
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    use crossterm::event;
+    ratatui::run(|terminal| loop {
+        terminal.draw(|frame| {
+            frame.render_widget("Hello world", frame.area())
+        })?;
+
+        if matches!(event::read()?, event::Event::Key(_)) {
+            break Ok(());
+        }
+    })
+}
+```
+
+![image:width:100%](assets/rat-drink.gif)
+
+<!-- end_slide -->
+
 ### Rendering
+
+<!-- pause -->
 
 <!-- column_layout: [3, 1] -->
 
@@ -539,6 +560,8 @@ loop {
 <!-- end_slide -->
 
 ### Layout
+
+<!-- pause -->
 
 <!-- column_layout: [8, 2] -->
 
@@ -596,9 +619,13 @@ cargo run -p flex
 
 ### Event Handling
 
+<!-- pause -->
+
 - Backends: `crossterm`, `termion`, `termwiz`
 
 <!-- pause -->
+
+#### Strategies
 
 - Centralized event handling
 - Centralized catching, message passing
@@ -625,6 +652,40 @@ if let Event::Key(key) = event::read()? {
 ```
 
 ![image:width:100%](assets/sphere.gif)
+
+<!-- end_slide -->
+
+<!-- column_layout: [3, 2] -->
+
+<!-- column: 0 -->
+
+```bash +exec +acquire_terminal
+tv
+```
+
+`https://github.com/alexpasmantier/television`
+
+<!-- column: 1 -->
+
+General purpose fuzzy finder
+
+<!-- pause -->
+
+<!-- reset_layout -->
+
+<!-- column_layout: [3, 2] -->
+
+<!-- column: 0 -->
+
+```bash +exec +acquire_terminal
+bmm tui
+```
+
+`https://github.com/dhth/bmm`
+
+<!-- column: 1 -->
+
+Terminal bookmark manager
 
 <!-- end_slide -->
 
@@ -697,7 +758,8 @@ let effect = EffectDsl::new()
 ```bash +exec +acquire_terminal
 cd tui-shader
 cargo run --example stylize-other-widget
-cargo run --example hello-shader
+cargo run --example tutorial
+cargo run --example shadertuiy
 ```
 
 <!-- pause -->
@@ -726,6 +788,22 @@ pkill trunk
 cd ratzilla/examples/demo
 trunk serve
 ```
+
+<!-- pause -->
+
+---
+
+#### Tusistor
+
+```bash +exec
+handlr open https://www.function-type.com/tusistor/
+```
+
+<!-- column_layout: [1, 4] -->
+
+<!-- column: 1 -->
+
+`https://github.com/dawedawe/tusistor`
 
 <!-- end_slide -->
 
@@ -764,7 +842,7 @@ cargo run --example multiple
 
 <!-- end_slide -->
 
-#### yeehaw 🤠
+#### Honorable mention: yeehaw 🤠
 
 [](https://github.com/bogzbonny/yeehaw)
 
@@ -1014,6 +1092,12 @@ Magical shell history
 <!-- pause -->
 
 **So just <span style="color: #ff5f00">contribute and build things™</span> 🦀**
+
+<!-- pause -->
+
+```bash
+$ cargo generate ratatui/templates
+```
 
 <!-- end_slide -->
 

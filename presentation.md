@@ -176,7 +176,7 @@ $ yt-dlp -f bestaudio
 <!-- pause -->
 
 ```sh +exec +acquire_terminal
-sudo oryx
+sudo oryx -i wlp3s0
 ```
 
 <!-- end_slide -->
@@ -227,6 +227,7 @@ Terminal is the past, present and future. █
 
 ```
   rust-hyper ran
+    1.01 ± 0.02 times faster than rust-ureq
     1.01 ± 0.02 times faster than rust-reqwest
     1.24 ± 0.06 times faster than go-http-client
     2.03 ± 0.05 times faster than zig-http-client
@@ -373,23 +374,25 @@ println!("{} {} {}", "or use".cyan(), "any".italic().yellow(), "string type".cya
 
 <!-- pause -->
 
+```bash
+echo out && echo err 1>&2
+```
+
+<!-- pause -->
+
 ```rust
 use duct::cmd;
-use std::io::prelude::*;
-use std::io::BufReader;
+use std::io::{BufReader, prelude::*};;
 
 // Merge standard error into standard output
 // and read both incrementally
 let out = cmd!("bash", "-c", "echo out && echo err 1>&2");
-
 let reader = out.stderr_to_stdout().reader()?;
 let mut lines = BufReader::new(reader).lines();
 
 assert_eq!(lines.next().unwrap()?, "out");
 assert_eq!(lines.next().unwrap()?, "err");
 ```
-
-🔒 No risk of deadlocks and no risk of leaking zombie children processes 🧟
 
 <!-- column_layout: [2, 1] -->
 
@@ -524,7 +527,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 <!-- end_slide -->
 
-### Rendering
+### 1. Rendering
 
 <!-- pause -->
 
@@ -559,7 +562,7 @@ loop {
 
 <!-- end_slide -->
 
-### Layout
+### 2. Layout
 
 <!-- pause -->
 
@@ -617,7 +620,7 @@ cargo run -p flex
 
 <!-- end_slide -->
 
-### Event Handling
+### 3. Event Handling
 
 <!-- pause -->
 
@@ -1118,6 +1121,22 @@ $ cargo generate ratatui/templates
 <!-- column: 1 -->
 
 > https://github.com/fdehau/tui-rs/issues/654
+
+<!-- end_slide -->
+
+![image:width:70%](assets/kitty-protocol.png)
+
+<!-- pause -->
+
+```bash
+printf "\e]66;s=2;Double sized text\a\n\n"
+```
+
+<!-- pause -->
+
+```bash +exec
+kitty -- assets/kitty-test.sh
+```
 
 <!-- end_slide -->
 

@@ -408,6 +408,8 @@ assert_eq!(lines.next().unwrap()?, "err");
 
 _<span style="color:#fff9ee">"R" in Rust stands for...</span>_
 
+<!-- pause -->
+
 ![image:width:40%](assets/rat-love.gif)
 
 <!-- column_layout: [4, 1] -->
@@ -605,7 +607,6 @@ let contraints = &[
 
 ```bash +exec +acquire_terminal
 cd ratatui
-cargo run -p constraints
 cargo run -p constraint-explorer
 ```
 
@@ -792,9 +793,7 @@ cd ratzilla/examples/demo
 trunk serve
 ```
 
-<!-- pause -->
-
----
+<!-- end_slide -->
 
 #### Tusistor
 
@@ -807,6 +806,10 @@ handlr open https://www.function-type.com/tusistor/
 <!-- column: 1 -->
 
 `https://github.com/dawedawe/tusistor`
+
+<!-- reset_layout -->
+
+![](assets/circuit.gif)
 
 <!-- end_slide -->
 

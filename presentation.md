@@ -30,11 +30,15 @@ theme:
 
 ---
 
-`https://orhun.dev             `
+https://orhun.dev
 
-`https://github.com/orhun      `
+https://github.com/orhun
 
-`https://youtube.com/@orhundev `
+https://youtube.com/@orhundev
+
+<!-- end_slide -->
+
+![image:width:90%](assets/dips.png)
 
 <!-- end_slide -->
 
@@ -171,9 +175,13 @@ $ yt-dlp -f bestaudio
 
 <!-- column: 1 -->
 
-<!-- new_lines: 6 -->
+<!-- new_lines: 4 -->
 
 <!-- pause -->
+
+# oryx
+
+https://github.com/pythops/oryx
 
 ```sh +exec +acquire_terminal
 sudo oryx -i wlp3s0
@@ -487,6 +495,8 @@ cargo run --manifest-path ratatui/examples/apps/demo2/Cargo.toml
 
 ### Minimal Example
 
+<!-- pause -->
+
 ```rust {1-20|5|6|7,16-18|8-11|12-14|1-20} +line_numbers
 use ratatui::crossterm::event::{self, Event};
 use ratatui::{text::Text, Frame};
@@ -659,6 +669,8 @@ if let Event::Key(key) = event::read()? {
 
 <!-- end_slide -->
 
+## Examples
+
 <!-- column_layout: [3, 2] -->
 
 <!-- column: 0 -->
@@ -667,7 +679,7 @@ if let Event::Key(key) = event::read()? {
 tv
 ```
 
-`https://github.com/alexpasmantier/television`
+https://github.com/alexpasmantier/television
 
 <!-- column: 1 -->
 
@@ -685,7 +697,7 @@ General purpose fuzzy finder
 bmm tui
 ```
 
-`https://github.com/dhth/bmm`
+https://github.com/dhth/bmm
 
 <!-- column: 1 -->
 
@@ -805,7 +817,7 @@ handlr open https://www.function-type.com/tusistor/
 
 <!-- column: 1 -->
 
-`https://github.com/dawedawe/tusistor`
+[](https://github.com/dawedawe/tusistor)
 
 <!-- reset_layout -->
 
@@ -848,7 +860,7 @@ cargo run --example multiple
 
 <!-- end_slide -->
 
-#### Honorable mention: yeehaw 🤠
+#### Honorable Mention: yeehaw 🤠
 
 [](https://github.com/bogzbonny/yeehaw)
 
@@ -912,6 +924,12 @@ cargo run --example showcase
 "7 Rust Terminal Tools That You Should Use"
 
 > https://youtu.be/ATiKwUiqnAU
+
+<!-- end_slide -->
+
+<!-- new_lines: 3 -->
+
+![](assets/rat-cook.gif)
 
 <!-- end_slide -->
 
@@ -1080,6 +1098,22 @@ Magical shell history
 <!-- new_lines: 6 -->
 
 ![image:width:60%](assets/casette.gif)
+
+<!-- end_slide -->
+
+<!-- new_lines: 9 -->
+
+_Reject modernity. Embrace the terminal._
+
+<!-- end_slide -->
+
+<!-- new_lines: 9 -->
+
+_̶R̶e̶j̶e̶c̶t̶ ̶m̶o̶d̶e̶r̶n̶i̶t̶y̶.̶ ̶E̶m̶b̶r̶a̶c̶e̶ ̶t̶h̶e̶ ̶t̶e̶r̶m̶i̶n̶a̶l̶.̶_
+
+_Make the terminal modern again._
+
+<!-- new_lines: 5 -->
 
 <!-- end_slide -->
 

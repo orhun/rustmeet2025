@@ -276,7 +276,7 @@ Terminal is the past, present and future. █
 
 <!-- end_slide -->
 
-<!-- new_lines: 3 -->
+<!-- new_lines: 2 -->
 
 ```rust
 use std::fs;
@@ -286,6 +286,10 @@ fn main() -> std::io::Result<()> {
     Ok(())
 }
 ```
+
+<!-- pause -->
+
+> pub fn remove_dir_all<P: AsRef\<Path\>>(path: P)
 
 <!-- pause -->
 
@@ -490,6 +494,8 @@ cargo run --manifest-path ratatui/examples/apps/demo2/Cargo.toml
 - Event handling
 
 ![image:width:60%](assets/ratcopter.gif)
+
+> https://ratatui.rs
 
 <!-- end_slide -->
 
@@ -1215,6 +1221,24 @@ A curated list of TUI apps and libraries built with Ratatui
 
 <!-- end_slide -->
 
+<!-- new_lines: 2 -->
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+Terminal Collective Discord:
+
+![image:width:90%](assets/qr1.png)
+
+<!-- column: 1 -->
+
+Ratatui Discord:
+
+![image:width:90%](assets/qr2.png)
+
+<!-- end_slide -->
+
 <!-- new_lines: 1 -->
 
 <!-- column_layout: [1, 3] -->
@@ -1234,7 +1258,7 @@ A curated list of TUI apps and libraries built with Ratatui
 <!-- column: 1 -->
 
 🧀 Sponsor me:
-_https://github.com/sponsors/orhun_
+[](https://github.com/sponsors/orhun)
 
 <!-- reset_layout -->
 

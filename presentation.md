@@ -795,6 +795,10 @@ let effect = EffectDsl::new()
     .expect("effect to be compiled");
 ```
 
+```bash +exec
+mpv assets/tachyonfx.mp4
+```
+
 <!-- end_slide -->
 
 ### tui-shader ✨

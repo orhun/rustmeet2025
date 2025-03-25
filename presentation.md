@@ -161,6 +161,30 @@ $ yt-dlp -f bestaudio
 
 <!-- end_slide -->
 
+## "I want to search for text in files"
+
+<!-- new_lines: 1 -->
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+<!-- pause -->
+
+![image:width:100%](assets/computer_vapor3.gif)
+
+<!-- column: 1 -->
+
+<!-- new_lines: 6 -->
+
+<!-- pause -->
+
+```bash +exec +acquire_terminal
+ig 'fn main' /home/orhun/gh/
+```
+
+<!-- end_slide -->
+
 ## "I want to monitor my network traffic"
 
 <!-- new_lines: 1 -->

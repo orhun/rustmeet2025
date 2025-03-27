@@ -894,6 +894,18 @@ cargo run --example multiple
 
 <!-- end_slide -->
 
+### Mousefood 🧀
+
+[](https://github.com/j-g00da/mousefood)
+
+![image:width:60%](assets/mousefood.gif)
+
+```bash +exec
+mpv assets/mousefood.mov
+```
+
+<!-- end_slide -->
+
 #### Honorable Mention: yeehaw 🤠
 
 [](https://github.com/bogzbonny/yeehaw)
